@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Growth marketing expert helping startups drive efficient growth through data-driven campaigns. Proven track record with 200% revenue growth for leading companies like Pluralsight, RevenueCat, and Scite.ai.">
+    <title>Growth Marketing Studio for Startups | I Run Your Ads</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                container: {
+                    center: true,
+                    padding: "2rem",
+                    screens: {
+                        "2xl": "1400px",
+                    },
+                },
+                extend: {
+                    colors: {
+                        border: "#eaeaea",
+                        background: "#fafafa",
+                        foreground: "#000000",
+                        primary: {
+                            DEFAULT: "#000000",
+                            foreground: "#ffffff",
+                        },
+                        muted: {
+                            DEFAULT: "#f5f5f5",
+                            foreground: "#666666",
+                        },
+                    },
+                    fontFamily: {
+                        sans: ['Public Sans', 'system-ui', 'sans-serif'],
+                        serif: ['ui-serif', 'Georgia', 'Cambria', 'Times New Roman', 'Times', 'serif'],
+                    },
+                },
+            },
+        }
+    </script>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        @keyframes shimmer {
+            0% {
+                background-position: 200% 50%;
+            }
+            100% {
+                background-position: -200% 50%;
+            }
+        }
+        
+        .shimmer {
+            background: linear-gradient(
+                110deg,
+                rgba(255,255,255,0) 0%,
+                rgba(255,255,255,0.2) 20%,
+                rgba(255,255,255,0.3) 25%,
+                rgba(255,255,255,0.2) 30%,
+                rgba(255,255,255,0) 50%,
+                rgba(255,255,255,0) 100%
+            );
+            background-size: 200% 100%;
+            animation: shimmer 3s infinite ease-in-out;
+        }
+
+        .button-glow {
+            transition: all 0.3s ease;
+        }
+
+        .button-glow:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 4px 20px -4px rgba(0,0,0,0.2);
+        }
+
+        @keyframes border-sparkle {
+            0% {
+                background-position: 0% 0%;
+            }
+            100% {
+                background-position: 200% 0%;
+            }
+        }
+        
+        .sparkle-button {
+            position: relative;
+            isolation: isolate;
+            transition: all 0.3s ease;
+        }
+
+        .sparkle-button::before {
+            content: '';
+            position: absolute;
+            inset: -2px;
+            border-radius: 8px;
+            padding: 2px;
+            background: linear-gradient(
+                90deg,
+                #00f2fe,
+                #4facfe,
+                #00f2fe,
+                #4facfe
+            );
+            -webkit-mask: 
+                linear-gradient(#fff 0 0) content-box, 
+                linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            background-size: 200% 100%;
+            animation: border-sparkle 3s linear infinite;
+            box-shadow: 
+                0 0 10px rgba(79, 172, 254, 0.5),
+                0 0 20px rgba(0, 242, 254, 0.3),
+                inset 0 0 10px rgba(79, 172, 254, 0.5);
+        }
+
+        .sparkle-button:hover::before {
+            background: linear-gradient(
+                90deg,
+                #00f2fe,
+                #4facfe,
+                #00f2fe,
+                #4facfe
+            );
+            animation: border-sparkle 1.5s linear infinite;
+            box-shadow: 
+                0 0 15px rgba(79, 172, 254, 0.7),
+                0 0 30px rgba(0, 242, 254, 0.5),
+                inset 0 0 15px rgba(79, 172, 254, 0.7);
+        }
+
+        .sparkle-button::after {
+            content: '';
+            position: absolute;
+            inset: -2px;
+            border-radius: 8px;
+            padding: 2px;
+            background: linear-gradient(
+                90deg,
+                transparent,
+                rgba(79, 172, 254, 0.2),
+                transparent
+            );
+            -webkit-mask: 
+                linear-gradient(#fff 0 0) content-box, 
+                linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            animation: border-sparkle 2s linear infinite;
+        }
+
+        .moving-dots {
+            --dot-size: 2px;
+            --dot-color: rgba(255, 255, 255, 0.8);
+        }
+        
+        .moving-dots-container {
+            position: absolute;
+            inset: 0;
+            overflow: hidden;
+            border-radius: 8px;
+            pointer-events: none;
+        }
+
+        .moving-dots-item {
+            position: absolute;
+            width: var(--dot-size);
+            height: var(--dot-size);
+            background-color: var(--dot-color);
+            border-radius: 50%;
+        }
+
+        .moving-dots-item:nth-child(1) { left: 20%; top: 0; animation: move-dot 2s infinite; }
+        .moving-dots-item:nth-child(2) { left: 40%; top: 0; animation: move-dot 2s infinite 0.2s; }
+        .moving-dots-item:nth-child(3) { left: 60%; top: 0; animation: move-dot 2s infinite 0.4s; }
+        .moving-dots-item:nth-child(4) { left: 80%; top: 0; animation: move-dot 2s infinite 0.6s; }
+
+        @keyframes move-dot {
+            0% { transform: translateY(0); opacity: 0; }
+            20% { opacity: 1; }
+            100% { transform: translateY(100%); opacity: 0; }
+        }
+
+        .hero-button {
+            position: relative;
+            padding: 12px 24px 12px 64px;
+            background: black;
+            color: white;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 16px;
+            border-radius: 6px;
+        }
+
+        .hero-button-box {
+            position: absolute;
+            left: 12px;
+            width: 40px;
+            height: 32px;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #6ee7b7;
+            border: 1px solid #84e1bc;
+            box-shadow: 
+                0 2px 0 #47c39b,
+                inset 0 1px 0 #9fecc8,
+                0 0 8px rgba(110, 231, 183, 0.3);
+            transition: all 0.15s ease;
+        }
+
+        .hero-button:hover .hero-button-box {
+            width: calc(100% - 24px);
+            background: #84e1bc;
+            transform: translateY(1px);
+            box-shadow: 
+                0 1px 0 #47c39b,
+                inset 0 1px 0 #9fecc8,
+                0 0 12px rgba(110, 231, 183, 0.4);
+        }
+
+        .hero-button .arrow-icon {
+            width: 16px;
+            height: 16px;
+            transition: transform 0.3s ease;
+            stroke: #000000;
+        }
+
+        .hero-button:hover .arrow-icon {
+            transform: translateX(4px);
+        }
+
+        .hero-button span {
+            position: relative;
+            z-index: 0;
+            transition: opacity 0.15s ease;
+        }
+
+        .hero-button:hover span {
+            opacity: 0;
+        }
+
+        @keyframes holographic {
+            0% {
+                background-position: 0% 50%;
+                filter: hue-rotate(0deg);
+            }
+            50% {
+                background-position: 100% 50%;
+                filter: hue-rotate(180deg);
+            }
+            100% {
+                background-position: 0% 50%;
+                filter: hue-rotate(360deg);
+            }
+        }
+
+        .logo-path {
+            stroke-dasharray: 2000;
+            stroke-dashoffset: 2000;
+            animation: write-logo 3s ease forwards;
+            fill: transparent;
+            stroke: currentColor;
+            stroke-width: 1;
+        }
+
+        @keyframes write-logo {
+            to {
+                stroke-dashoffset: 0;
+                fill: currentColor;
+            }
+        }
+
+        /* Add this class to restart animation on hover */
+        .logo-container:hover .logo-path {
+            animation: write-logo 3s ease forwards;
+        }
+
+        /* Update the container styles */
+        .container-custom {
+            width: 100%;
+            max-width: 640px;
+            margin: 0 auto;
+            padding: 0 24px;
+            position: relative;
+            left: 0;
+            transform: translateX(0);
+        }
+
+        /* Remove the media query since we want consistent padding */
+        @media (min-width: 640px) {
+            .container-custom {
+                padding: 0 24px;
+            }
+        }
+
+        /* Update the background pattern */
+        .bg-pattern {
+            background-color: #fafafa;
+            background-image: 
+                radial-gradient(circle, rgba(229, 229, 229, 0.5) 1.5px, transparent 1.5px),
+                linear-gradient(rgba(229, 229, 229, 0.2) 0.5px, transparent 0.5px),
+                linear-gradient(90deg, rgba(229, 229, 229, 0.2) 0.5px, transparent 0.5px);
+            background-size: 16px 16px, 16px 16px, 16px 16px;
+            background-position: -1px -1px, -1px -1px, -1px -1px;
+            position: relative;
+        }
+
+        .bg-pattern::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, 
+                rgba(250, 250, 250, 0) 0%,
+                rgba(250, 250, 250, 0.8) 50%,
+                rgba(250, 250, 250, 0) 100%
+            );
+            pointer-events: none;
+        }
+
+        .laser-dot {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: #10b981;  /* Emerald-500 */
+            border-radius: 50%;
+            filter: blur(2px);
+            box-shadow: 0 0 8px #10b981;
+            opacity: 0.7;
+            animation: laser-bounce 4s linear infinite alternate;
+            top: -2px;
+        }
+
+        @keyframes laser-bounce {
+            from { left: 0; }
+            to { left: calc(100% - 4px); }
+        }
+
+        .border-section {
+            position: relative;
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body class="min-h-screen bg-pattern font-sans antialiased tracking-tight">
+    <div class="relative flex min-h-screen flex-col">
+        <div class="container-custom">
+            <header class="py-6 mb-12">
+                <nav class="flex items-center justify-between">
+                    <div class="w-10 h-10 rounded-full bg-neutral-100 overflow-hidden">
+                        <img 
+                            src="https://media.licdn.com/dms/image/v2/D4E03AQGoAz0yHHiATQ/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1697831949086?e=1746057600&v=beta&t=dfk56YniXTEVam2i5hMzoesnc8O4NCoWnToJMlJsd10" 
+                            alt="Profile Photo" 
+                            class="w-full h-full object-cover"
+                        />
+                    </div>
+                    <div class="flex gap-8">
+                        <a href="#work" class="text-sm hover:text-primary">Work</a>
+                        <div class="flex items-center gap-2">
+                            <span class="text-sm text-neutral-400">Learn</span>
+                            <span class="inline-flex items-center rounded-full bg-neutral-100 px-2 py-0.5 text-xs font-medium text-neutral-500">
+                                Soon
+                            </span>
+                        </div>
+                        <a href="#about" class="text-sm hover:text-primary">About</a>
+                        <a href="#contact" class="text-sm hover:text-primary">Contact</a>
+                    </div>
+                </nav>
+            </header>
+
+            <main class="flex-1">
+                <section class="py-24">
+                    <div class="space-y-6">
+                        <div class="mb-8">
+                            <img 
+                                src="images/i-run-your-ads-3.svg" 
+                                alt="I Run Your Ads Logo" 
+                                class="h-8 grayscale opacity-80"
+                            />
+                        </div>
+                        <h1 class="text-4xl font-serif tracking-tight sm:text-5xl">
+                            A Growth Marketing Studio
+                        </h1>
+                        <p class="text-base text-muted-foreground space-y-4">
+                            <span class="block">
+                                I'm Corey and I work with startups and founders to design, launch, and optimize marketing campaigns that drive efficient growth. I don't outsource my work. You'll work directly with me and I'll be in the platform mines, chipping away at your growth.
+                            </span>
+                            
+                            <span class="block">
+                                I am eager to work with startups looking to unlock their next stage of growth. If that sounds like you, let's connect and chat. 
+                            </span>
+                        </p>
+                        <div class="pt-4 relative">
+                            <a href="mailto:coreyrab@gmail.com?subject=Project%20Inquiry" class="hero-button relative inline-flex items-center justify-center rounded-md text-sm font-medium">
+                                <div class="hero-button-box">
+                                    <svg class="arrow-icon" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M1 8h14M8 1l7 7-7 7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                </div>
+                                <span>Get in Touch</span>
+                            </a>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="work" class="py-16 border-t border-section">
+                    <div class="laser-dot"></div>
+                    <div class="space-y-12">
+                        <!-- Logo Grid -->
+                        <div>
+                            <h2 class="text-2xl font-serif mb-8">Trusted by leading companies</h2>
+                            <div class="flex flex-row gap-6 items-center justify-between">
+                                <div class="flex h-12 items-center justify-center">
+                                    <img 
+                                        class="h-8 grayscale opacity-70" 
+                                        src="images/Pluralsight_Logo.svg" 
+                                        alt="Pluralsight logo" 
+                                    />
+                                </div>
+                                <div class="flex h-12 items-center justify-center">
+                                    <img 
+                                        class="h-8 grayscale opacity-70" 
+                                        src="images/swappa.svg" 
+                                        alt="Swappa logo" 
+                                    />
+                                </div>
+                                <div class="flex h-12 items-center justify-center">
+                                    <img 
+                                        class="h-8 grayscale opacity-70" 
+                                        src="images/abstract2.svg" 
+                                        alt="Abstract logo" 
+                                    />
+                                </div>
+                                <div class="flex h-12 items-center justify-center">
+                                    <img 
+                                        class="h-8 grayscale opacity-70" 
+                                        src="images/wyre3.svg" 
+                                        alt="Wyre logo" 
+                                    />
+                                </div>
+                                <div class="flex h-12 items-center justify-center">
+                                    <img 
+                                        class="h-8 grayscale opacity-70" 
+                                        src="images/sciteai.svg" 
+                                        alt="Scite.ai logo" 
+                                    />
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Testimonials -->
+                        <div class="text-neutral-600 flex flex-col gap-6">
+                            <div class="bg-neutral-100 rounded-xl p-4 border border-neutral-200">
+                                <div class="flex flex-col gap-2">
+                                    <div class="text-base">
+                                        "Corey stood up our entire paid-marketing strategy, <span class="font-bold">helping us drive new trials, improve our conversion rate, and lower our cost per acquisition.</span> I would recommend him without reserve and with a lot of enthusiasm."
+                                    </div>
+                                    <div class="flex gap-1 items-center text-sm">
+                                        <img
+                                            alt="Josh Nicholson profile photo" 
+                                            class="rounded-full h-8 w-8 grayscale"
+                                            src="https://media.licdn.com/dms/image/v2/C4E03AQFWz2tY02UdTg/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1663590728868?e=1746057600&v=beta&t=-dk7bmGZ_3hLv6FY9XvYndUe5PUc_GnuJN7NylI7ODY"
+                                        />
+                                        <span>Josh Nicholson, CEO – Scite.ai</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="py-24 border-t">
+                    <div class="space-y-6">
+                        <div class="flex justify-between items-center pb-1">
+                            <h2 class="text-lg font-serif">Performance over platform</h2>
+                        </div>
+
+                        <div class="space-y-4">
+                            <p class="text-base text-neutral-500">
+                                I have hands-on-keyboard-experience with a wide range of channels but growth each company's growth takes unique recipes. I'll work with you to understand your business, test channels, and build programs that drive revenue – not just clicks and likes.
+                            </p>
+                            <div class="flex items-center gap-4">
+                                <div class="w-12 h-12 rounded-lg bg-emerald-50 flex items-center justify-center">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-emerald-600">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m-3-2.818.879.659c1.171.879 3.07.879 4.242 0 1.172-.879 1.172-2.303 0-3.182C13.536 12.219 12.768 12 12 12c-.725 0-1.45-.22-2.003-.659-1.171-.879-1.172-2.303 0-3.182C10.536 9.219 11.768 9 12 9c.725 0 1.45.22 2.003.659" />
+                                    </svg>
+                                </div>
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-neutral-300">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+                                </svg>
+                                <div class="flex gap-4">
+                                    <div class="w-12 h-12 rounded-lg bg-neutral-100 flex items-center justify-center">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 grayscale opacity-70" viewBox="0 0 24 24">
+                                            <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+                                            <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+                                            <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/>
+                                            <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/>
+                                        </svg>
+                                    </div>
+                                    <div class="w-12 h-12 rounded-lg bg-neutral-100 flex items-center justify-center">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 grayscale opacity-70" viewBox="0 0 24 24">
+                                            <path fill="#0A66C2" d="M20.5 2h-17A1.5 1.5 0 002 3.5v17A1.5 1.5 0 003.5 22h17a1.5 1.5 0 001.5-1.5v-17A1.5 1.5 0 0020.5 2zM8 19H5v-9h3zM6.5 8.25A1.75 1.75 0 118.3 6.5a1.78 1.78 0 01-1.8 1.75zM19 19h-3v-4.74c0-1.42-.6-1.93-1.38-1.93A1.74 1.74 0 0013 14.19a.66.66 0 000 .14V19h-3v-9h2.9v1.3a3.11 3.11 0 012.7-1.4c1.55 0 3.36.86 3.36 3.66z"/>
+                                        </svg>
+                                    </div>
+                                    <div class="w-12 h-12 rounded-lg bg-neutral-100 flex items-center justify-center">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 grayscale opacity-70" viewBox="0 0 48 48">
+                                            <path fill="#1877F2" d="M48 24C48 10.745 37.255 0 24 0S0 10.745 0 24c0 11.979 8.776 21.908 20.25 23.708v-16.77h-6.094V24h6.094v-5.288c0-6.014 3.583-9.337 9.065-9.337 2.625 0 5.372.469 5.372.469v5.906h-3.026c-2.981 0-3.911 1.85-3.911 3.75V24h6.656l-1.064 6.938H27.75v16.77C39.224 45.908 48 35.979 48 24"/>
+                                        </svg>
+                                    </div>
+                                    <div class="w-12 h-12 rounded-lg bg-neutral-100 flex items-center justify-center">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 grayscale opacity-70" viewBox="0 0 448 512">
+                                            <path fill="#000000" d="M448,209.91a210.06,210.06,0,0,1-122.77-39.25V349.38A162.55,162.55,0,1,1,185,188.31V278.2a74.62,74.62,0,1,0,52.23,71.18V0l88,0a121.18,121.18,0,0,0,1.86,22.17h0A122.18,122.18,0,0,0,381,102.39a121.43,121.43,0,0,0,67,20.14Z"/>
+                                        </svg>
+                                    </div>
+                                    <div class="w-12 h-12 rounded-lg bg-neutral-100 flex items-center justify-center">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 grayscale opacity-70" viewBox="0 0 24 24">
+                                            <path fill="#FF4500" d="M12 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0zm5.01 4.744c.688 0 1.25.561 1.25 1.249a1.25 1.25 0 0 1-2.498.056l-2.597-.547-.8 3.747c1.824.07 3.48.632 4.674 1.488.308-.309.73-.491 1.207-.491.968 0 1.754.786 1.754 1.754 0 .716-.435 1.333-1.01 1.614a3.111 3.111 0 0 1 .042.52c0 2.694-3.13 4.87-7.004 4.87-3.874 0-7.004-2.176-7.004-4.87 0-.183.015-.366.043-.534A1.748 1.748 0 0 1 4.028 12c0-.968.786-1.754 1.754-1.754.463 0 .898.196 1.207.49 1.207-.883 2.878-1.43 4.744-1.487l.885-4.182a.342.342 0 0 1 .14-.197.35.35 0 0 1 .238-.042l2.906.617a1.214 1.214 0 0 1 1.108-.701zM9.25 12C8.561 12 8 12.562 8 13.25c0 .687.561 1.248 1.25 1.248.687 0 1.248-.561 1.248-1.249 0-.688-.561-1.249-1.249-1.249zm5.5 0c-.687 0-1.248.561-1.248 1.25 0 .687.561 1.248 1.249 1.248.688 0 1.249-.561 1.249-1.249 0-.687-.562-1.249-1.25-1.249zm-5.466 3.99a.327.327 0 0 0-.231.094.33.33 0 0 0 0 .463c.842.842 2.484.913 2.961.913.477 0 2.105-.056 2.961-.913a.361.361 0 0 0 .029-.463.33.33 0 0 0-.464 0c-.547.533-1.684.73-2.512.73-.828 0-1.979-.196-2.512-.73a.326.326 0 0 0-.232-.095z"/>
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="py-24 border-t">
+                    <div class="space-y-6">
+                        <div class="flex justify-between items-center pb-1">
+                            <h2 class="text-lg font-serif">Experience</h2>
+                            <a href="https://www.linkedin.com/in/crabazinski/" target="_blank" class="flex items-center gap-1 text-sm hover:text-neutral-500">
+                                View LinkedIn
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="m12.75 15 3-3m0 0-3-3m3 3h-7.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                                </svg>
+                            </a>
+                        </div>
+
+                        <div class="space-y-8">
+                            <!-- Job Item 1 -->
+                            <div class="flex flex-col gap-2">
+                                <div class="flex justify-between items-center">
+                                    <img 
+                                        src="images/rsicon.svg" 
+                                        alt="RS icon" 
+                                        class="w-10 h-10 rounded-lg bg-neutral-100 p-2 grayscale opacity-70"
+                                    />
+                                    <span class="text-sm text-neutral-500">2022—Present</span>
+                                </div>
+                                <div class="space-y-1">
+                                    <div>
+                                        <div class="flex items-center gap-2">
+                                            <h3 class="text-sm font-semibold">Growth Marketing Lead</h3>
+                                            <span class="inline-flex items-center rounded-full bg-blue-50 px-2 py-1 text-xs font-medium text-blue-500">
+                                                NASDAQ: RSSS
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <p class="text-sm text-neutral-600 leading-relaxed">
+                                        Led growth marketing initiatives resulting in 300% increase in qualified leads. 
+                                        Managed paid advertising campaigns across multiple channels with $50k monthly budget.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <!-- Job Item 2 -->
+                            <div class="flex flex-col gap-2">
+                                <div class="flex justify-between items-center">
+                                    <img 
+                                        src="images/revenuecat1.svg" 
+                                        alt="RevenueCat logo" 
+                                        class="w-10 h-10 rounded-lg bg-neutral-100 p-2 grayscale opacity-70"
+                                    />
+                                    <span class="text-sm text-neutral-500">2020—2022</span>
+                                </div>
+                                <div class="space-y-1">
+                                    <div>
+                                        <div class="flex items-center gap-2">
+                                            <h3 class="text-sm font-semibold">Senior Marketing Manager</h3>
+                                            <span class="inline-flex items-center rounded-full bg-red-50 px-2 py-1 text-xs font-medium text-red-500">
+                                                $0-20m in revenue
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <p class="text-sm text-neutral-600 leading-relaxed">
+                                        Developed and executed marketing strategies for B2B SaaS products.
+                                        Achieved 40% reduction in customer acquisition costs through optimization.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <!-- Job Item 3 -->
+                            <div class="flex flex-col gap-2">
+                                <div class="flex justify-between items-center">
+                                    <img 
+                                        src="images/manifold.svg" 
+                                        alt="Manifold logo" 
+                                        class="w-10 h-10 rounded-lg bg-neutral-100 p-2 grayscale opacity-70"
+                                    />
+                                    <span class="text-sm text-neutral-500">2018—2020</span>
+                                </div>
+                                <div class="space-y-1">
+                                    <div>
+                                        <div class="flex items-center gap-2">
+                                            <h3 class="text-sm font-semibold">Marketing Manager</h3>
+                                            <span class="inline-flex items-center rounded-full bg-purple-50 px-2 py-1 text-xs font-medium text-purple-500">
+                                                Acquired by Snyk
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <p class="text-sm text-neutral-600 leading-relaxed">
+                                        Implemented comprehensive digital marketing strategies across multiple channels.
+                                        Drove 150% increase in marketing qualified leads through targeted campaigns.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <!-- Job Item 4 -->
+                            <div class="flex flex-col gap-2">
+                                <div class="flex justify-between items-center">
+                                    <img 
+                                        src="images/code-school-logo-svg-vector 1.svg" 
+                                        alt="Code School logo" 
+                                        class="w-10 h-10 rounded-lg bg-neutral-100 p-2 grayscale opacity-70"
+                                    />
+                                    <span class="text-sm text-neutral-500">2016—2018</span>
+                                </div>
+                                <div class="space-y-1">
+                                    <div>
+                                        <div class="flex items-center gap-2">
+                                            <h3 class="text-sm font-semibold">Digital Marketing Specialist</h3>
+                                            <span class="inline-flex items-center rounded-full bg-orange-50 px-2 py-1 text-xs font-medium text-orange-500">
+                                                Acquired by Pluralsight
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <p class="text-sm text-neutral-600 leading-relaxed">
+                                        Managed paid social and search campaigns for B2B clients.
+                                        Optimized conversion funnels resulting in 45% improvement in lead quality.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="py-24 border-t">
+                    <div class="space-y-6">
+                        <div class="flex justify-between items-center pb-1">
+                            <h2 class="text-lg font-serif">Engagement Options</h2>
+                            <a href="mailto:coreyrab@gmail.com?subject=Project%20Inquiry" class="flex items-center gap-1 text-sm hover:text-neutral-500">
+                                Get in touch
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="m12.75 15 3-3m0 0-3-3m3 3h-7.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                                </svg>
+                            </a>
+                        </div>
+
+                        <div class="space-y-4">
+                            <a href="mailto:coreyrab@gmail.com?subject=Project%20Inquiry" class="flex items-center gap-4 pt-4 group hover:text-neutral-500">
+                                <div class="flex-shrink-0">
+                                    <div class="text-base underline">Monthly Retainer</div>
+                                    <div class="text-sm text-neutral-500">$5,995 per month</div>
+                                </div>
+                                <div class="h-px flex-1 bg-neutral-200 self-start mt-3"></div>
+                            </a>
+
+                            <a href="mailto:coreyrab@gmail.com?subject=Project%20Inquiry" class="flex items-center gap-4 pt-4 group hover:text-neutral-500">
+                                <div class="flex-shrink-0">
+                                    <div class="text-base underline">Audit + Strategy</div>
+                                    <div class="text-sm text-neutral-500">$10,000 one-time</div>
+                                </div>
+                                <div class="h-px flex-1 bg-neutral-200 self-start mt-3"></div>
+                            </a>
+
+                            <a href="mailto:coreyrab@gmail.com?subject=Project%20Inquiry" class="flex items-center gap-4 pt-4 group hover:text-neutral-500">
+                                <div class="flex-shrink-0">
+                                    <div class="text-base underline">Custom Engagement</div>
+                                    <div class="text-sm text-neutral-500">Let's discuss your needs</div>
+                                </div>
+                                <div class="h-px flex-1 bg-neutral-200 self-start mt-3"></div>
+                            </a>
+                        </div>
+                    </div>
+                </section>
+
+                <footer class="py-12 border-t">
+                    <div class="flex justify-between items-center">
+                        <p class="text-sm text-muted-foreground">© 2024</p>
+                        <div class="flex gap-6">
+                            <a href="#" class="text-sm text-muted-foreground hover:text-primary">Twitter</a>
+                            <a href="https://www.linkedin.com/in/crabazinski/" class="flex items-center gap-1 text-sm text-muted-foreground hover:text-primary">
+                                LinkedIn
+                                <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M20.5 2h-17A1.5 1.5 0 002 3.5v17A1.5 1.5 0 003.5 22h17a1.5 1.5 0 001.5-1.5v-17A1.5 1.5 0 0020.5 2zM8 19H5v-9h3zM6.5 8.25A1.75 1.75 0 118.3 6.5a1.78 1.78 0 01-1.8 1.75zM19 19h-3v-4.74c0-1.42-.6-1.93-1.38-1.93A1.74 1.74 0 0013 14.19a.66.66 0 000 .14V19h-3v-9h2.9v1.3a3.11 3.11 0 012.7-1.4c1.55 0 3.36.86 3.36 3.66z"></path>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </footer>
+            </main>
+        </div>
+    </div>
+</body>
+</html> 
